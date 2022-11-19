@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <title>login form</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+        <!-- css stylesheet -->
+        <link rel="stylesheet" href="css/style.css">
+        <!-- font styles cdn -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Alegreya&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@600&display=swap" rel="stylesheet">
+
+    </header>
+    <body>
+      <div   class="d-flex justify-content-center">
+      <div class="card" style="height: 27rem;width:20rem;box-shadow: 5px 3px 5px gray;position: relative;top: 30px;">
+        <div class="msg">{{ msg }}</div>
+        <div   class="d-flex justify-content-center" style="display: inline-block;">
+        <img src="static/shoplogo.jpeg" alt="loading" class="rounded-circle" width="50" height="50" style="justify-content: center;align-items:center">
+        <h6 style="position: relative;top:14px">Login Form</h6>
+      </div>
+        <form action="/login" method="POST" class="align-self-center" style="max-width:18rem">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Username</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="text-center000000000000" placeholder="Enter username" name="username">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+          </div>
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Remember my password</label>
+          </div>
+          <button type="submit" class="btn btn-primary" id="button" style="justify-content: center;position: relative;left: 90px;">login</button>
+        </form>   
+        <div class="note mt-3 text-center"> <!--Register form -->
+          <p> Don't have an account yet? Click here to <a href="{{url_for('reg')}}">register! </a> </p>
+          <p> Forget password <a href="{{url_for('forget')}}">Forget password </a> </p>
+          </div>
+         
+      </div>
+      </div>
+      <script>
+        window.watsonAssistantChatOptions = {
+          integrationID: "051b5063-3e48-4415-b588-78321e7f9107", // The ID of this integration.
+          region: "au-syd", // The region your integration is hosted in.
+          serviceInstanceID: "7ba8670c-d388-468d-8769-c777564b6121", // The ID of your service instance.
+          onLoad: function(instance) { instance.render(); }
+        };
+        setTimeout(function(){
+          const t=document.createElement('script');
+          t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+          document.head.appendChild(t);
+        });
+      </script>
+    </body>
+</html>
