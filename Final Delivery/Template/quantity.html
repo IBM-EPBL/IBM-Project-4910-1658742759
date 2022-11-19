@@ -1,0 +1,31 @@
+{% extends 'nav.html'%}
+    {% block content %}
+    
+      <table class="table table-striped table-dark align-self-center" style="width:90%;position: relative;top:10px;left:10px">
+  <thead>
+    <tr>
+      <th scope="col">pid</th>
+      <th scope="col">pname</th>
+      <th scope="col">price</th>
+      <th scope="col">quantity</th>
+      <th scope="col">delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <form action="/update" method="POST">
+   {% for i in account.values()%}
+    <tr>
+      <td><input type="text" value={{i.pid}} name="pid" readonly></td>
+      <td><input type="text" value={{i.name}} name="pname" readonly></td>
+      <td><input type="text" value={{i.price}} name="pprice" readonly></td>
+      <td><input type="text" value={{i.quantity}} name="quantity" readonly></td>
+      <td><input type="submit" class="btn btn-primary" value="DELETE"id="button"></td>
+
+    </tr>
+    {%endfor%}
+</form>
+     </tbody>
+</table>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+{% endblock%}

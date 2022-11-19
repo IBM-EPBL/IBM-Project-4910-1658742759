@@ -1,0 +1,56 @@
+{% extends 'nav.html'%}
+    {% block content %}
+<div class="row" style="width: max-content;background-color:azure;">
+      <div class="col-sm-4" style="position: relative;left: 50px;">
+         <div   class="d-flex justify-content-center">
+         <div class="card" style="width: 18rem;position: relative;top:10px;border: 5px black;">  
+         <form  style="max-width:12rem" class="align-self-center"  action="/product" method="POST">
+            <div class="form-group">
+               <label>Product id</label>
+               <input type="text" class="form-control" name="pid"id="exampleInputEmail1" aria-describedby="text" placeholder="Enter Product id">
+                   </div>
+             
+            <div class="form-group">
+        <label>Product name</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" name="pname"aria-describedby="text" placeholder="Enter Product name with grams">
+            </div>
+      <div class="form-group">
+        <label >enter the price</label>
+        <input type="number" class="form-control" id="exampleInputPassword1"name="price" placeholder="Enter the price">
+      </div>
+      <div class="form-group">
+         <label >enter the quantity</label>
+         <input type="number" class="form-control" id="examplequantity" name="quantity" placeholder="Enter the quantity">
+       </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form></div>
+   </div>
+    </div>
+      <div class="col-sm-8" style="position:relative;left:50px;background-color:azure;">
+      <table class="table table-striped table-dark" style="width:100%;position: relative;top:10px;overflow: scroll;">
+  <thead>
+    <tr>
+      <th scope="col">product id</th>
+      <th scope="col">product name</th>
+      <th scope="col">price</th>
+      <th scope="col">quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <form action="/update" method="POST">
+   {% for i in account.values()%}<tr>
+    <td><input type="text" value={{i.pid}} name="pid" readonly style="width:100px"></td>
+    <td><input type="text" value={{i.name}} name="pname" readonly style="width:100px"></td>
+    <td><input type="text" value={{i.price}} name="pprice" readonly style="width:100px"></td>
+    <td><input type="text" value={{i.quantity}} name="quantity" readonly style="width:100px"></td>
+    <td><input type="submit" class="btn btn-primary" value="DELETE"id="button" style="width: 100px;"></td>
+  </tr>
+  
+    {%endfor%}
+    </form>
+     </tbody>
+</table></div>
+    </div>
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+{% endblock%}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOBPORTAL | HOME</title>
+       <div class="msg" style="position:absolute;background-color:lightgreen;color:whitesmoke">{{ msg }}</div>
+    <meta charset="UTF-8">
+        <!-- favicon -->
+        <!-- <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"> -->
+        <!-- <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon"> -->
+        <link rel="icon" type="/image/png" sizes="16x16" href="/assets/img/favicon-32x32.png">
+        <!-- bootstrap css cdn -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+        <!-- css stylesheet -->
+        <link rel="stylesheet" href="css/style.css">
+        <!-- font styles cdn -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Alegreya&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@600&display=swap" rel="stylesheet">
+</head>
+<body style="background-color:azure;">
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <img src="static/shoplogo.jpeg" alt="loading" class="rounded-circle" width="60" height="60">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="{{url_for('users')}}">See all users<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('display')}}">Add Item</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('statement')}}">Bill The Item</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('all')}}" style="display:inline-block">Item <p style="width:20px;height:20px;border-radius:50%;background-color: green;color:white;text-align: center;position: absolute;top: 30px;left: 405px;">{{count}}</p></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('alter')}}" style="margin-left: 10px;">alterbill</a>
+          </li>
+        </ul>
+        <h6>username:{{name}}</h6>        
+      </div>
+    </nav>
+    {% block content %}
+    {% endblock%}
+</body>
+</html>

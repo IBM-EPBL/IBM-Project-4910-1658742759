@@ -1,0 +1,13 @@
+
+{% block content %}
+ 
+<form action = "/fvalidate" method="post">  
+  
+<h4> One-time password has been sent to the email id. Please check the email for the verification.</h4>  
+ <h4>{{email}}</h4> 
+Enter OTP: <input type="text" name="otp">  
+  
+<input type="submit" value="Submit">  
+  
+</form>  
+{% endblock%}

@@ -1,0 +1,78 @@
+{% extends 'nav.html' %}
+{%block content%}
+    <div class="row" style="width: max-content;">
+      <div class="col-sm-4" style="background-color:azure;position: relative;left: 50px;">
+         <div   class="d-flex justify-content-center">
+         <div class="card" style="width: 18rem;position: relative;top:10px;height: 18rem;">
+            
+         <form  style="max-width:12rem;position: relative;top: 30px;" class="align-self-center"  action="/billp" method="POST">
+            <div class="msg">{{ msg }}</div>
+            <div class="form-group">
+              <input type="text" value={{bid}} name="bd" readonly style="width: 5rem;border: none;display: none;">
+               <label>Product id</label>
+               <input type="text" class="form-control" name="product"id="exampleInputEmail1" aria-describedby="text" placeholder="Enter Product id">
+                   </div>
+      <div class="form-group">
+         <label >enter the quantity</label>
+         <input type="number" class="form-control" id="examplequantity" name="quantity" placeholder="Enter the quantity">
+       </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form></div>
+   </div>
+    </div>
+      <div class="col-sm-8" style="position:relative;left:50px">
+        <div class="card" style="width:36rem;position: relative;top: 30px;">
+        <div class="d-flex justify-content-center">
+        <img src="static/shoplogo.jpeg" alt="shoplogo.jpeg" class="rounded-circle" width="60" height="60">
+        </div>
+    </br>
+    <div class="align-self-center">
+        <h5>THIRUPATHI RETAIL STORE</h5>
+        <h6 style="font-size:small">Biller Name:{{name}}</h6>
+        <h6 style="font-size:small">BILL NUMBER:{{bid}}</h6>
+    </div>
+        <table class="table table-striped" style="overflow: scroll;">
+            <thead>
+              <tr style="width: 100%;justify-content:center;text-align:center">
+                <th scope="col" style="display:none">name</th>
+                <th scope="col">name</th>
+                <th scope="col">quantity</th>
+                <th scope="col">price</th>
+                <th scope="col">delete</th>
+              </tr>
+            </thead>
+            <tbody>
+    <form action="/delete" method="POST" style="border:none;">
+        
+        {% for i in account.values()%}
+              <tr>
+                <td><input type="text" value={{bid}} name="billid" readonly style="width: 5rem;border: none;display: none;"></td>
+                <td><input type="text" value={{i.product}} name="productid" readonly style="width: 5rem;border: none;position:absolute;left: 20px;text-align: center;"></td>
+                <td><input type="number" value={{i.quantity}} name="quantity" style="width: 5rem;border: none;position: absolute;margin-left: -120px;text-align: center;"></td>
+                <td><input type="text" value={{i.price}} name="price" readonly style="width: 5rem;border: none;position: absolute;margin-left: -100px;text-align: center;"></td></td>
+                <td><button type="submit" style="width: 5rem;border: none;position: absolute;margin-left: -100px;">DELETE</button></td>  
+            </tr>
+            {%endfor%}
+</form>
+            </tbody>
+          </table>
+          <div class="align-self-center">
+<p>total:{{total}}</p> 
+<a href="{{url_for('ADS')}}" style="text-decoration:none;width:60px;height:40px;background-color:blue;color:white;font-size:medium;border-radius: 3px;">Print</a>
+          </div>
+      </div>
+    </div>
+    </div>
+    <script>
+  window.watsonAssistantChatOptions = {
+    integrationID: "051b5063-3e48-4415-b588-78321e7f9107", // The ID of this integration.
+    region: "au-syd", // The region your integration is hosted in.
+    serviceInstanceID: "7ba8670c-d388-468d-8769-c777564b6121", // The ID of your service instance.
+    onLoad: function(instance) { instance.render(); }
+  };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+    document.head.appendChild(t);
+  });
+</script> {% endblock%}
